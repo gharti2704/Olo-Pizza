@@ -2,23 +2,26 @@ import React, { useEffect, useState, useReducer } from 'react';
 import axios from 'axios';
 import './App.css';
 import { ListTopping } from './ListPopularTopping';
-import { ACTIONS, popularToppingsReducer } from '../reducer';
+import {
+  ACTIONS,
+  popularToppingsReducer,
+  initialState,
+  IPopularToppingsState,
+  PopularToppingsAction,
+} from '../reducer';
 
-export interface ITopping {
+interface ITopping {
   toppings: string[];
-}
-
-export interface PopularTopping {
-  popularToppings: [string, number][];
 }
 
 export const App: React.FC = () => {
   const [pizzaOrders, setPizzaOrders] = useState<ITopping[]>([]);
-  const [state, dispatch] = useReducer(popularToppingsReducer, {
-    popularToppings: [],
-    error: '',
-    loading: false,
-  });
+  const [state, dispatch] = useReducer<
+    (
+      state: IPopularToppingsState,
+      action: PopularToppingsAction
+    ) => IPopularToppingsState
+  >(popularToppingsReducer, initialState);
 
   const calculatePopularToppings = (orders: ITopping[]): void => {
     const toppingsCount: { [toppings: string]: number } = {};

@@ -1,8 +1,10 @@
-import { PopularTopping } from './App';
+interface ListToppingProps {
+  popularToppings: [string, number][];
+}
 
-export const ListTopping: React.FC<PopularTopping> = ({
+export const ListTopping: React.FC<ListToppingProps> = ({
   popularToppings,
-}: PopularTopping) => {
+}: ListToppingProps) => {
   return (
     <>
       <ol>
