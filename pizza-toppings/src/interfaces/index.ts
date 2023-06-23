@@ -4,20 +4,20 @@ export interface IPopularToppingsState {
   error: string;
 }
 
-export interface PopularToppingsAction {
+export type PopularToppingsAction = {
   type: string;
   payload: IPopularToppingsState;
-}
+};
 
-export interface ComposePopularToppingProps {
+export type ComposePopularToppingProps = {
   pizzaOrders: ITopping[];
   dispatch: React.Dispatch<PopularToppingsAction>;
   state: IPopularToppingsState;
-}
+};
 
-export interface ListPopularToppingProps {
+export type ListPopularToppingProps = {
   popularToppings: [string, number][];
-}
+};
 
 export interface ITopping {
   toppings: string[];
