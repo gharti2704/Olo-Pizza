@@ -1,16 +1,14 @@
-interface ListToppingProps {
-  popularToppings: [string, number][];
-}
+import { ListPopularToppingProps } from '../interfaces';
 
-export const ListTopping: React.FC<ListToppingProps> = ({
+export const ListPopularToppings: React.FC<ListPopularToppingProps> = ({
   popularToppings,
-}: ListToppingProps) => {
+}: ListPopularToppingProps) => {
   return (
     <>
       <ol>
         {popularToppings.map(
           ([topping, count]: [string, number], index: number) => (
-            <li className="Card" key={count}>
+            <li className="card" key={count}>
               <strong>Rank: {index + 1}</strong>
               <br />
               <strong>Toppings: </strong>

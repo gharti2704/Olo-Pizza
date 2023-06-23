@@ -1,28 +1,8 @@
-export interface IPopularToppingsState {
-  popularToppings: [string, number][];
-  loading: boolean;
-  error: string;
-}
-
-export const initialState: IPopularToppingsState = {
-  popularToppings: [],
-  loading: false,
-  error: '',
-};
-
-export interface PopularToppingsAction {
-  type: string;
-  payload: IPopularToppingsState;
-}
-
-export const ACTIONS = {
-  POPULAR_TOPPINGS: 'POPULAR_TOPPINGS',
-  POPULAR_TOPPINGS_PENDING: 'POPULAR_TOPPINGS_PENDING',
-  POPULAR_TOPPINGS_REJECTED: 'POPULAR_TOPPINGS_REJECTED',
-};
+import { IPopularToppingsState, PopularToppingsAction } from '../../interfaces';
+import { ACTIONS } from '../actions';
 
 export const popularToppingsReducer = (
-  state: IPopularToppingsState = initialState,
+  state: IPopularToppingsState,
   action: PopularToppingsAction
 ) => {
   switch (action.type) {
